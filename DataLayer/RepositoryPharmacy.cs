@@ -18,43 +18,44 @@ namespace DataLayer
             public List<PharmacySPResult> GetAll(PharmacySPParams ph)
             {
 
-            DataSet ds = new DataSet();
-            
-            
-            
-            DataTable pharm = ds.Tables["Pharmacies"];          
+                  
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
                 string sqlExpression = "SPGetAllPharmacies";
 
+            try
+            {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    SqlDataAdapter adapter = new SqlDataAdapter(sqlExpression, connection);
+
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    DataTable tab = ds.Tables["Pharmacies"];
+                    foreach (DataRow row in tab.Rows)
                     {
-                        if (reader.HasRows)
+                        list.Add(new PharmacySPResult
                         {
-
-                            while (reader.Read())
-                            {
-
-                            list.Add(new PharmacySPResult
-                            {
-                               // PharmacyId = pharm.Field<Guid>(nameof(ph.PharmacyId)),
-                                PharmacyId = (Guid)reader[nameof(ph.PharmacyId)],
-                                Name = (String)reader[nameof(ph.Name)],
-                                StateCode = (String)reader[nameof(ph.StateCode)],
-                                Address = (String)reader[nameof(ph.Address)],
-                                ContactEmail = (String)reader[nameof(ph.ContactEmail)],
-                                ContactPhone = (String)reader[nameof(ph.ContactPhone)]
-                            });
-                               
-                            }
-                        }
+                            PharmacyId = row.Field<Guid>(nameof(ph.PharmacyId)),
+                            Name = row.Field<String>(nameof(ph.Name)),
+                            StateCode = row.Field<String>(nameof(ph.StateCode)),
+                            Address = row.Field<String>(nameof(ph.Address)),
+                            ContactEmail = row.Field<String>(nameof(ph.ContactEmail)),
+                            ContactPhone = row.Field<String>(nameof(ph.ContactPhone))
+                        });
                     }
+
                 }
                 return list;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return list;
+            }    
+           
+               
             }
 
             public IEnumerable<PharmacySPParams> GetForCondition(string condition)
