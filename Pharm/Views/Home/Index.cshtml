@@ -1,0 +1,14 @@
+﻿@model  List<Pharmacy>
+@{ Layout = "_Layout"; }
+
+<header>
+    <partial name="_BarAll" />
+</header>
+
+<body>
+    @foreach (string country in ViewBag.Countries)
+    {
+        <p>@country</p>
+    }
+    <partial name="_ViewAdvertPartial" />
+</body>
