@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pharm", "Pharm\Pharm.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{ECA3E02A-BEC0-4B81-A64E-08E7EC40AD74}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB", "DB\DB.sqlproj", "{1980C05D-D813-45BD-8C31-F3FB6903F896}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Pharmacy", "DB\Pharmacy.sqlproj", "{1980C05D-D813-45BD-8C31-F3FB6903F896}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{84C07CD7-8564-4150-9BA5-3E864787C7B5}"
 EndProject

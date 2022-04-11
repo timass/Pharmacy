@@ -54,9 +54,9 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DB\DB.sqlproj">
+    <ProjectReference Include="..\DB\Pharmacy.sqlproj">
       <Project>{1980c05d-d813-45bd-8c31-f3fb6903f896}</Project>
-      <Name>DB</Name>
+      <Name>Pharmacy</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -4,17 +4,17 @@ namespace DataLayer
 { 
     public class Pharmacy
     {
-        public Guid PharmacyId { get; set; }
+        public Guid PharmaciesId;
 
-        public string Name { get; set; }
+        public string PhName;
 
-        public string StateCode { get; set; }
+        public string StateCode;
 
-        public string Address { get; set; }
+        public string Address;
 
-        public string ContactEmail { get; set; }
+        public string ContactEmail;
 
-        public string ContactPhone { get; set; }
+        public string ContactPhone;
 
     }
 }

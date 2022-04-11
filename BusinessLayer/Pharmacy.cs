@@ -11,8 +11,8 @@ namespace DataLayer
         }
         public Pharmacy(PharmacySPResult phResult)
         {
-            PharmacyId = phResult.PharmacyId;
-            Name = phResult.Name;
+            PharmacyId = phResult.PharmaciesId;
+            Name = phResult.PhName;
             StateCode = phResult.StateCode;
             Address = phResult.Address;
             ContactEmail = phResult.ContactEmail;

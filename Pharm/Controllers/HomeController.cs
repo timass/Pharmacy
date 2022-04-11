@@ -11,16 +11,18 @@ namespace Pharm.Controllers
     public class HomeController : Controller
     {
         UnitOfWork unit;
+        PharmacySPParams ph;
         public HomeController()
         {
             unit = new UnitOfWork();
+            ph = new PharmacySPParams();
         }      
        
-        public void Index()
+        public ActionResult Index()
         {
-            IEnumerable<Pharmacy> list = unit.pharmacyRepository.GetAll();
-        } 
-        
+            List<PharmacySPResult> list = unit.pharmacyRepository.GetAll(ph);
+            return View(list);
+        }         
         
     }
 }

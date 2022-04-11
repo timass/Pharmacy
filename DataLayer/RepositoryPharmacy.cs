@@ -11,8 +11,8 @@ namespace DataLayer
 {
     public class RepositoryPharmacy
     {
-        
-            static string connectionString = "Server=(localdb)\\mssqllocaldb;Database=Pharm;Trusted_Connection=True;";
+
+        static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Pharmacy; Integrated Security=True; TrustServerCertificate=True";
 
 
             public List<PharmacySPResult> GetAll(PharmacySPParams ph)
@@ -20,7 +20,8 @@ namespace DataLayer
 
                   
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
-                string sqlExpression = "SPGetAllPharmacies";
+            string sqlExpression = "SPGetAllPharmacies";
+            
 
             try
             {
@@ -28,21 +29,28 @@ namespace DataLayer
                 {
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlExpression, connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
-                    DataTable tab = ds.Tables["Pharmacies"];
-                    foreach (DataRow row in tab.Rows)
+                    
+                    foreach (DataTable dt in ds.Tables)
                     {
-                        list.Add(new PharmacySPResult
+                        int i = dt.Rows.Count;
+                        DataRow obj = dt.Rows[0];
+                        for(int k = 0; k< dt.Rows.Count; k++)
                         {
-                            PharmacyId = row.Field<Guid>(nameof(ph.PharmacyId)),
-                            Name = row.Field<String>(nameof(ph.Name)),
-                            StateCode = row.Field<String>(nameof(ph.StateCode)),
-                            Address = row.Field<String>(nameof(ph.Address)),
-                            ContactEmail = row.Field<String>(nameof(ph.ContactEmail)),
-                            ContactPhone = row.Field<String>(nameof(ph.ContactPhone))
-                        });
+                          //  object obj2 = dt.Rows[k];                           
+                            PharmacySPResult phar = new PharmacySPResult(
+                                dt.Rows[k].Field<Guid>(nameof(ph.PharmaciesId)),                         
+                                dt.Rows[k].Field<String>(nameof(ph.PhName)),
+                                dt.Rows[k].Field<String>(nameof(ph.StateCode)),
+                                dt.Rows[k].Field<String>(nameof(ph.Address)),
+                                dt.Rows[k].Field<String>(nameof(ph.ContactEmail)),
+                                dt.Rows[k].Field<String>(nameof(ph.ContactPhone))
+                            );
+                            list.Add(phar);
+                        }
                     }
 
                 }

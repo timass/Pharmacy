@@ -1,14 +1,24 @@
-﻿@model  List<Pharmacy>
-@{ Layout = "_Layout"; }
+﻿@using DataLayer
+@model  List<PharmacySPResult>
+@*@{ Layout = "_Layout"; }*@
 
 <header>
     <partial name="_BarAll" />
 </header>
 
 <body>
-    @foreach (string country in ViewBag.Countries)
-    {
-        <p>@country</p>
-    }
+    <table>
+        @foreach (var ph in Model)
+        {
+        <tr>
+            <td>@ph.PhName</td>
+            <td>@ph.StateCode</td>
+            <td>@ph.Address</td>
+            <td>@ph.ContactEmail</td>
+            <td>@ph.ContactPhone </td>
+
+        </tr>
+        }
+    </table>
     <partial name="_ViewAdvertPartial" />
 </body>
