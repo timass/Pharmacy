@@ -9,20 +9,20 @@ namespace BusinessLayer.Extensions
         {
             return new PatientSPParams
             {
-                PatientId = Guid.Parse(nameof(pat.PatientId)),
-                Name = nameof(pat.Name),
-                LastName = nameof(pat.LastName),
-                PharmacyName = nameof(pat.PharmacyName)
+                PatientId = pat.PatientId,
+                Name = pat.Name,
+                LastName = pat.LastName,
+                PharmacyName = pat.PharmacyName
             };
         }
         public static PatientDomain ToPatientDomain(this PatientSPResult patRes)
         {
             return new PatientDomain
             {
-                PatientId = Guid.Parse(nameof(patRes.PatientId)),
-                Name = nameof(patRes.Name),
-                LastName = nameof(patRes.LastName),
-                PharmacyName = nameof(patRes.PharmacyName)
+                PatientId = patRes.PatientId,
+                Name = patRes.Name,
+                LastName = patRes.LastName,
+                PharmacyName = patRes.PharmacyName
             };
         }
     }

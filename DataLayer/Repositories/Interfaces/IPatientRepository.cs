@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer
+namespace DataLayer.Interfaces
 {
-    public class RepositoryPatient
+   interface IPatientRepository
     {
-    }
+
+   }
 }

@@ -10,14 +10,9 @@ namespace Pharm.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepositoryPharmacy Repos;
-        private readonly PharmacyViewModel PhVM;
+        private PharmacyRepository Repos = new PharmacyRepository();
 
-        public HomeController(IRepositoryPharmacy rep, PharmacyViewModel phVM)
-        {
-            Repos = rep;
-            PhVM = phVM;
-        }
+        private PharmacyViewModel PhVM = new PharmacyViewModel();       
 
         [HttpGet]
         public async Task<ActionResult> Index()

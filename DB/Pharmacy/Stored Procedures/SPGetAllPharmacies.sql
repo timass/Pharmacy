@@ -1,6 +1,6 @@
 ﻿
 CREATE PROCEDURE SPGetPharmacies AS
 BEGIN
-    SELECT PhName, StateCode, Address, ContactEmail, ContactPhone
+    SELECT PharmacyId, PhName, StateCode, Address, ContactEmail, ContactPhone
     FROM Pharmacies
 END;

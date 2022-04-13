@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\PharmacyDomainExtensions.cs" />
-    <Compile Include="Extensions\PatientDomainExtensions.cs" />
-    <Compile Include="PatientDomain.cs" />
-    <Compile Include="PharmacyDomain.cs" />
+    <Compile Include="Models\Extensions\PharmacyDomainExtensions.cs" />
+    <Compile Include="Models\Extensions\PatientDomainExtensions.cs" />
+    <Compile Include="Models\PatientDomain.cs" />
+    <Compile Include="Models\PharmacyDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

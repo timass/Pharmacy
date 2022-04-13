@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IRepositoryPharmacy
+    public interface IPharmacyRepository
     {
         Task<List<PharmacySPResult>> GetAllAsync(PharmacySPParams ph);
 

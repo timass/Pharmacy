@@ -10,10 +10,10 @@ namespace Pharm.Extensions
         {
             return new PatientViewModel
             {
-                PatientId = Guid.Parse(nameof(pat.PatientId)),
-                Name = nameof(pat.Name),
-                LastName = nameof(pat.LastName),
-                PharmacyName = nameof(pat.PharmacyName)
+                PatientId = pat.PatientId,
+                Name = pat.Name,
+                LastName = pat.LastName,
+                PharmacyName = pat.PharmacyName
             };
         }
 
@@ -21,10 +21,10 @@ namespace Pharm.Extensions
         {
             return new PatientDomain
             {
-                PatientId = Guid.Parse(nameof(pat.PatientId)),
-                Name = nameof(pat.Name),
-                LastName = nameof(pat.LastName),
-                PharmacyName = nameof(pat.PharmacyName)
+                PatientId = pat.PatientId,
+                Name = pat.Name,
+                LastName = pat.LastName,
+                PharmacyName = pat.PharmacyName
 
             };
         }

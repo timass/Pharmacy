@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class RepositoryPharmacy
+    public class PharmacyRepository
     {
+
 
         static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Pharmacy; Integrated Security=True; TrustServerCertificate=True";
 
@@ -17,9 +18,9 @@ namespace DataLayer
             public async Task<List<PharmacySPResult>> GetAllAsync(PharmacySPParams ph)
             {                  
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
-                string sqlExpression = "SPGetAllPharmacies"; 
-            try
-            {                
+                string sqlExpression = "SPGetPharmacies"; 
+              try
+              {                
                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     await connection.OpenAsync();
@@ -50,16 +51,14 @@ namespace DataLayer
 
                 }                
                return list; 
-            }
+              }
 
-            catch (Exception ex)
-            {
+             catch (Exception ex)
+              {
 
                 Console.WriteLine(ex.Message);
                 return list;
-            }    
-           
-               
+              } 
             }
 
             public IEnumerable<PharmacySPParams> GetForCondition(string condition)

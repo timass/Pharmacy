@@ -9,26 +9,25 @@ namespace Pharm.Extensions
         {
             return new PharmacyViewModel
             {
-                PharmacyId = Guid.Parse(nameof(ph.PharmacyId)),
-                PhName = nameof(ph.PhName),
-                StateCode = nameof(ph.StateCode),
-                Address = nameof(ph.Address),
-                ContactEmail = nameof(ph.ContactEmail),
-                ContactPhone = nameof(ph.ContactPhone)
+                PharmacyId = ph.PharmacyId,
+                PhName = ph.PhName,
+                StateCode = ph.StateCode,
+                Address = ph.Address,
+                ContactEmail = ph.ContactEmail,
+                ContactPhone = ph.ContactPhone
             };
         }
-
         public static PharmacyDomain ToPharmacyDomain(this PharmacyViewModel ph)
 
         {
             return new PharmacyDomain
             {
-                PharmacyId = Guid.Parse(nameof(ph.PharmacyId)),
-                PhName = nameof(ph.PhName),
-                StateCode = nameof(ph.StateCode),
-                Address = nameof(ph.Address),
-                ContactEmail = nameof(ph.ContactEmail),
-                ContactPhone = nameof(ph.ContactPhone)
+                PharmacyId = ph.PharmacyId, 
+                PhName = ph.PhName,
+                StateCode = ph.StateCode,
+                Address = ph.Address,
+                ContactEmail = ph.ContactEmail,
+                ContactPhone = ph.ContactPhone
             };            
         }
       
