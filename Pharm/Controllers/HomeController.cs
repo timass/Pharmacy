@@ -4,37 +4,32 @@ using BusinessLayer.Extensions;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace Pharm.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly RepositoryPharmacy Repos;        
-        WMPharmacy WmPh;
+        private readonly IRepositoryPharmacy Repos;
+        private readonly PharmacyViewModel PhVM;
 
-        public HomeController() { }
-
-        public HomeController(RepositoryPharmacy rep)
+        public HomeController(IRepositoryPharmacy rep, PharmacyViewModel phVM)
         {
             Repos = rep;
-            WmPh = new WMPharmacy();          
-        }      
-       
-        public ActionResult Index()
+            PhVM = phVM;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Index()
         {
-            //List<PharmacySPResult> list = Repos.GetAll(WmPh.MappFromWMPharmacyToPharmacy().MappFromPharmacyToPhSPParams());
-
-            List<WMPharmacy> newList = new List<WMPharmacy>();
-            foreach (var item in Repos.GetAll(WmPh.MappFromWMPharmacyToPharmacy().MappFromPharmacyToPhSPParams()))
+           
+            List<PharmacySPResult> list = await Repos.GetAllAsync(PhVM.ToPharmacyDomain().ToPharmacySPParams());            
+            List<PharmacyViewModel> newList = new List<PharmacyViewModel>();
+            foreach (var item in list)
             {
-                newList.Add(item.MappFromPhSPResultToPharmacy().MappFromPharmacyToWMPharmacy());
+              newList.Add(item.ToPharmacyDomain().ToPharmacyViewModel());
             }
-
-            //List<WMPharmacy> newList2 = (from l in list
-            //                            select new WMPharmacy (l.MappFromPhSPResultToPharmacy().MappFromPharmacyToWMPharmacy())
-            //                            .ToList();               
             return View(newList);
-        }         
-        
+        }                 
     }
 }

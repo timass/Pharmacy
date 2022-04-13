@@ -121,21 +121,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\MappingFromWMPatientToPatient.cs" />
-    <Compile Include="Extensions\MappingFromPharmacyToWMPharmacy.cs" />
-    <Compile Include="Extensions\MappingFromPatientToWMPatient.cs" />
-    <Compile Include="Extensions\MappingFromWMPharmacyToPharmacy.cs" />
+    <Compile Include="Extensions\PatientViewModelExtensions.cs" />
+    <Compile Include="Extensions\PharmacyViewModelExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FiltrPatient.cs" />
-    <Compile Include="Models\FiltrPharmacies.cs" />
-    <Compile Include="Models\PageViewModel.cs" />
-    <Compile Include="Models\PagPatient.cs" />
-    <Compile Include="Models\PagPharmacy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebModels\WMPatient.cs" />
-    <Compile Include="WebModels\WMPharmacy.cs" />
+    <Compile Include="ViewModels\PatientViewModel.cs" />
+    <Compile Include="ViewModels\PharmacyViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -174,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

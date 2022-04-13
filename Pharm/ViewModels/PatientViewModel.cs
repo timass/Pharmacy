@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BusinessLayer
+namespace Pharm
 {
-    public class Patient
+    public class PatientViewModel
     {
         public Guid PatientId { get; set; }
 

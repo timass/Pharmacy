@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 
-namespace Pharm
+namespace BusinessLayer
 { 
-    public class WMPharmacy
+    public class PharmacyDomain
     {     
         public Guid PharmacyId { get; set; }
 

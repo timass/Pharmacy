@@ -41,12 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\MappingFromPharmacyToPhSPParams.cs" />
-    <Compile Include="Extensions\MappingFromPhSPResultToPharmacy.cs" />
-    <Compile Include="Extensions\MappingFromPatientToPatSPParams.cs" />
-    <Compile Include="Extensions\MappingFromPatSPResultToPatient.cs" />
-    <Compile Include="Patient.cs" />
-    <Compile Include="Pharmacy.cs" />
+    <Compile Include="Extensions\PharmacyDomainExtensions.cs" />
+    <Compile Include="Extensions\PatientDomainExtensions.cs" />
+    <Compile Include="PatientDomain.cs" />
+    <Compile Include="PharmacyDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

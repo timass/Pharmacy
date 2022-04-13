@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepositoryPharmacy.cs" />
     <Compile Include="PatientSPResult.cs" />
     <Compile Include="PatientSPParams.cs" />
     <Compile Include="PharmacySPResult.cs" />

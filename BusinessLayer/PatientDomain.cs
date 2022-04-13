@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Pharm
+namespace BusinessLayer
 {
-    public class WMPatient
+    public class PatientDomain
     {
         public Guid PatientId { get; set; }
 

@@ -3,6 +3,6 @@
     [PharmaciesId] UNIQUEIDENTIFIER NOT NULL,
     PRIMARY KEY CLUSTERED ([PatientsId] ASC, [PharmaciesId] ASC),
     FOREIGN KEY ([PatientsId]) REFERENCES [dbo].[Patients] ([PatientsId]),
-    FOREIGN KEY ([PharmaciesId]) REFERENCES [dbo].[Pharmacies] ([PharmaciesId])
+    FOREIGN KEY ([PharmaciesId]) REFERENCES [dbo].[Pharmacies] ([PharmacyId])
 );
 

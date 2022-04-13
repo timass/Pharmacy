@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 
-namespace BusinessLayer
+namespace Pharm
 { 
-    public class Pharmacy
+    public class PharmacyViewModel
     {     
         public Guid PharmacyId { get; set; }
 

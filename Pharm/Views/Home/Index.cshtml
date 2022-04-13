@@ -1,22 +1,23 @@
-﻿@model  List<WMPharmacy>
+﻿
+
+@model  List<PharmacyViewModel> 
 @*@{ Layout = "_Layout"; }*@
 
-<header>
-    <partial name="_BarAll" />
-</header>
+                        <header>
+                            <partial name="_BarAll" />
+                        </header>
 
-<body>
-    <table>
-        @foreach (var ph in Model)
-        {
-        <tr>
-            <td>@ph.PhName</td>
-            <td>@ph.StateCode</td>
-            <td>@ph.Address</td>
-            <td>@ph.ContactEmail</td>
-            <td>@ph.ContactPhone </td>
+                                    <body>
+                                        <table>
+                                            @foreach (var ph in Model)
+                                            {
+                                <tr>
+                                    <td>@ph.PhName</td>
+                                    <td>@ph.StateCode</td>
+                                    <td>@ph.Address</td>
+                                    <td>@ph.ContactEmail</td>
+                                    <td>@ph.ContactPhone </td>
 
-        </tr>
-        }
-    </table>    
-</body>
+                                </tr>}
+                                        </table>
+                                    </body>

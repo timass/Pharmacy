@@ -14,7 +14,7 @@ namespace DataLayer
         static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Pharmacy; Integrated Security=True; TrustServerCertificate=True";
 
 
-            public List<PharmacySPResult> GetAll(PharmacySPParams ph)
+            public async Task<List<PharmacySPResult>> GetAllAsync(PharmacySPParams ph)
             {                  
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
                 string sqlExpression = "SPGetAllPharmacies"; 
@@ -22,7 +22,7 @@ namespace DataLayer
             {                
                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
+                    await connection.OpenAsync();
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlExpression, connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
 
