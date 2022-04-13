@@ -1,27 +1,39 @@
 ﻿using DataLayer;
-using System;
+using Pharm.Extensions;
+using BusinessLayer.Extensions;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
+using System;
 
 namespace Pharm.Controllers
 {
     public class HomeController : Controller
     {
-        UnitOfWork unit;
-        PharmacySPParams ph;
-        public HomeController()
+        private readonly RepositoryPharmacy Repos;        
+        WMPharmacy WmPh;
+
+        public HomeController() { }
+
+        public HomeController(RepositoryPharmacy rep)
         {
-            unit = new UnitOfWork();
-            ph = new PharmacySPParams();
+            Repos = rep;
+            WmPh = new WMPharmacy();          
         }      
        
         public ActionResult Index()
         {
-            List<PharmacySPResult> list = unit.pharmacyRepository.GetAll(ph);
-            return View(list);
+            //List<PharmacySPResult> list = Repos.GetAll(WmPh.MappFromWMPharmacyToPharmacy().MappFromPharmacyToPhSPParams());
+
+            List<WMPharmacy> newList = new List<WMPharmacy>();
+            foreach (var item in Repos.GetAll(WmPh.MappFromWMPharmacyToPharmacy().MappFromPharmacyToPhSPParams()))
+            {
+                newList.Add(item.MappFromPhSPResultToPharmacy().MappFromPharmacyToWMPharmacy());
+            }
+
+            //List<WMPharmacy> newList2 = (from l in list
+            //                            select new WMPharmacy (l.MappFromPhSPResultToPharmacy().MappFromPharmacyToWMPharmacy())
+            //                            .ToList();               
+            return View(newList);
         }         
         
     }

@@ -41,17 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Patient.cs" />
     <Compile Include="PatientSPResult.cs" />
     <Compile Include="PatientSPParams.cs" />
-    <Compile Include="Pharmacy.cs" />
     <Compile Include="PharmacySPResult.cs" />
     <Compile Include="PharmacySPParams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="RepositoryPatient.cs" />
     <Compile Include="RepositoryPharmacy.cs" />
-    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DB\Pharmacy.sqlproj">

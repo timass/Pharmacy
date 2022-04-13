@@ -1,14 +1,10 @@
-﻿using DataLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Pharm.Models
 {
     public class PagPharmacy
     {
-        public IEnumerable<PharmacySPParams> Patients { get; set; }
+        public IEnumerable<WMPharmacy> Patients { get; set; }
 
         public PageViewModel PageViewModel { get; set; }
     }

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataLayer
+namespace Pharm
 {
-    public class Patient
+    public class WMPatient
     {
         public Guid PatientId { get; set; }
 
@@ -10,8 +10,6 @@ namespace DataLayer
 
         public string LastName { get; set; }
 
-        public string PharmacyName { get; set; }
-
-        
+        public string PharmacyName { get; set; }       
     }
 }

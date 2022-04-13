@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataLayer
+namespace BusinessLayer
 {
     public class Patient
     {
@@ -10,14 +10,6 @@ namespace DataLayer
 
         public string LastName { get; set; }
 
-        public string PharmacyName { get; set; }
-
-        public void Reader(PatientSPParams pParams, PatientSPResult pResult)
-        {
-            PatientId = pParams.PatientId;
-            Name = pParams.Name;
-            LastName = pParams.LastName;
-            PharmacyName = pParams.PharmacyName;            
-        }
+        public string PharmacyName { get; set; }       
     }
 }

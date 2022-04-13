@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\MappingFromPharmacyToPhSPParams.cs" />
+    <Compile Include="Extensions\MappingFromPhSPResultToPharmacy.cs" />
+    <Compile Include="Extensions\MappingFromPatientToPatSPParams.cs" />
+    <Compile Include="Extensions\MappingFromPatSPResultToPatient.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Pharmacy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,5 +55,6 @@
       <Name>DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

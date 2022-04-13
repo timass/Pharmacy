@@ -4,8 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
-
-
+using System.Threading.Tasks;
 
 namespace DataLayer
 {
@@ -16,16 +15,12 @@ namespace DataLayer
 
 
             public List<PharmacySPResult> GetAll(PharmacySPParams ph)
-            {
-
-                  
+            {                  
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
-            string sqlExpression = "SPGetAllPharmacies";
-            
-
+                string sqlExpression = "SPGetAllPharmacies"; 
             try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+            {                
+               using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter(sqlExpression, connection);
@@ -40,22 +35,23 @@ namespace DataLayer
                         DataRow obj = dt.Rows[0];
                         for(int k = 0; k< dt.Rows.Count; k++)
                         {
-                          //  object obj2 = dt.Rows[k];                           
-                            PharmacySPResult phar = new PharmacySPResult(
-                                dt.Rows[k].Field<Guid>(nameof(ph.PharmaciesId)),                         
-                                dt.Rows[k].Field<String>(nameof(ph.PhName)),
-                                dt.Rows[k].Field<String>(nameof(ph.StateCode)),
-                                dt.Rows[k].Field<String>(nameof(ph.Address)),
-                                dt.Rows[k].Field<String>(nameof(ph.ContactEmail)),
-                                dt.Rows[k].Field<String>(nameof(ph.ContactPhone))
-                            );
+                            PharmacySPResult phar = new PharmacySPResult
+                            {
+                               PharmacyId = dt.Rows[k].Field<Guid>(nameof(ph.PharmacyId)),
+                               PhName = dt.Rows[k].Field<String>(nameof(ph.PhName)),
+                               StateCode = dt.Rows[k].Field<String>(nameof(ph.StateCode)),
+                               Address = dt.Rows[k].Field<String>(nameof(ph.Address)),
+                               ContactEmail = dt.Rows[k].Field<String>(nameof(ph.ContactEmail)),
+                               ContactPhone = dt.Rows[k].Field<String>(nameof(ph.ContactPhone))
+                            };
                             list.Add(phar);
                         }
                     }
 
-                }
-                return list;
+                }                
+               return list; 
             }
+
             catch (Exception ex)
             {
 
