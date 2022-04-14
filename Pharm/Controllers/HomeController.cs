@@ -16,8 +16,7 @@ namespace Pharm.Controllers
 
         [HttpGet]
         public async Task<ActionResult> Index()
-        {
-           
+        {           
             List<PharmacySPResult> list = await Repos.GetAllAsync(PhVM.ToPharmacyDomain().ToPharmacySPParams());            
             List<PharmacyViewModel> newList = new List<PharmacyViewModel>();
             foreach (var item in list)
