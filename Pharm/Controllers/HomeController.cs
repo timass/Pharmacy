@@ -1,29 +1,21 @@
-﻿using DataLayer;
-using Pharm.Extensions;
-using BusinessLayer.Extensions;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using System;
+﻿using System.Web.Mvc;
 using System.Threading.Tasks;
+using BusinessLayer.Services;
+using System.Linq;
+using BusinessLayer;
+using System.Collections.Generic;
+using Pharm.Extensions;
 
 namespace Pharm.Controllers
 {
     public class HomeController : Controller
     {
-        private PharmacyRepository Repos = new PharmacyRepository();
-
-        private PharmacyViewModel PhVM = new PharmacyViewModel();       
-
+        PharmacyService PhSer = new PharmacyService();
         [HttpGet]
         public async Task<ActionResult> Index()
-        {           
-            List<PharmacySPResult> list = await Repos.GetAllAsync(PhVM.ToPharmacyDomain().ToPharmacySPParams());            
-            List<PharmacyViewModel> newList = new List<PharmacyViewModel>();
-            foreach (var item in list)
-            {
-              newList.Add(item.ToPharmacyDomain().ToPharmacyViewModel());
-            }
-            return View(newList);
+        {
+           List<PharmacyDomain> listPharmDom = await PhSer.GetAllPharmacy();
+           return View(listPharmDom.Select(p=>p.ToPharmacyViewModel()).ToList());
         }                 
     }
 }

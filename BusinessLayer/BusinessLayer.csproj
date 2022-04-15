@@ -46,6 +46,7 @@
     <Compile Include="Models\PatientDomain.cs" />
     <Compile Include="Models\PharmacyDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PharmacyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

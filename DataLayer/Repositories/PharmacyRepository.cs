@@ -15,7 +15,7 @@ namespace DataLayer
         static string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=Pharmacy; Integrated Security=True; TrustServerCertificate=True";
 
 
-            public async Task<List<PharmacySPResult>> GetAllAsync(PharmacySPParams ph)
+            public async Task<List<PharmacySPResult>> GetAllAsync()
             {                  
                 List<PharmacySPResult> list = new List<PharmacySPResult>();
                 string sqlExpression = "SPGetPharmacies"; 
@@ -32,30 +32,26 @@ namespace DataLayer
                     
                     foreach (DataTable dt in ds.Tables)
                     {
-                        int i = dt.Rows.Count;
-                        DataRow obj = dt.Rows[0];
-                        for(int k = 0; k< dt.Rows.Count; k++)
-                        {
+                        foreach (DataRow item in dt.Rows)
+                        { 
                             PharmacySPResult phar = new PharmacySPResult
                             {
-                               PharmacyId = dt.Rows[k].Field<Guid>(nameof(ph.PharmacyId)),
-                               PhName = dt.Rows[k].Field<String>(nameof(ph.PhName)),
-                               StateCode = dt.Rows[k].Field<String>(nameof(ph.StateCode)),
-                               Address = dt.Rows[k].Field<String>(nameof(ph.Address)),
-                               ContactEmail = dt.Rows[k].Field<String>(nameof(ph.ContactEmail)),
-                               ContactPhone = dt.Rows[k].Field<String>(nameof(ph.ContactPhone))
+                               PharmacyId = item.Field<Guid>(nameof(PharmacySPParams.PharmacyId)),
+                               PhName = item.Field<String>(nameof(PharmacySPParams.PhName)),
+                               StateCode = item.Field<String>(nameof(PharmacySPParams.StateCode)),
+                               Address = item.Field<String>(nameof(PharmacySPParams.Address)),
+                               ContactEmail = item.Field<String>(nameof(PharmacySPParams.ContactEmail)),
+                               ContactPhone = item.Field<String>(nameof(PharmacySPParams.ContactPhone))
                             };
                             list.Add(phar);
                         }
                     }
-
                 }                
                return list; 
               }
 
              catch (Exception ex)
               {
-
                 Console.WriteLine(ex.Message);
                 return list;
               } 

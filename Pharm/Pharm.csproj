@@ -121,12 +121,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Extensions\PatientViewModelExtensions.cs" />
-    <Compile Include="Extensions\PharmacyViewModelExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Extensions\PatientViewModelExtensions.cs" />
+    <Compile Include="ViewModels\Extensions\PharmacyViewModelExtensions.cs" />
     <Compile Include="ViewModels\PatientViewModel.cs" />
     <Compile Include="ViewModels\PharmacyViewModel.cs" />
   </ItemGroup>
@@ -186,10 +186,6 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{84c07cd7-8564-4150-9ba5-3e864787c7b5}</Project>
       <Name>BusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{eca3e02a-bec0-4b81-a64e-08e7ec40ad74}</Project>
-      <Name>DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
