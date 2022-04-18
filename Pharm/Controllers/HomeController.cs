@@ -8,13 +8,12 @@ using Pharm.Extensions;
 
 namespace Pharm.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        PharmacyService PhSer = new PharmacyService();
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-           List<PharmacyDomain> listPharmDom = await PhSer.GetAllPharmacy();
+           List<PharmacyDomain> listPharmDom = await PharmacyService.GetAllPharmacy();
            return View(listPharmDom.Select(p=>p.ToPharmacyViewModel()).ToList());
         }                 
     }

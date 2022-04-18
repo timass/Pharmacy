@@ -52,12 +52,11 @@ namespace DataLayer
 
              catch (Exception ex)
               {
-                Console.WriteLine(ex.Message);
-                return list;
+                throw new Exception(ex.Message);                
               } 
             }
 
-            public IEnumerable<PharmacySPParams> GetForCondition(string condition)
+            public IEnumerable<PharmacySPParams> GetFiltered(string condition)
             {
                 throw new NotImplementedException();
             }

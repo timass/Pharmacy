@@ -8,8 +8,13 @@ namespace BusinessLayer.Services
 {
     public class PharmacyService
     {
-        private PharmacyRepository Repos = new PharmacyRepository();
-       
+        private readonly PharmacyRepository Repos;
+
+        public PharmacyService()
+        {
+            Repos = new PharmacyRepository();
+        }
+        
         public async Task<List<PharmacyDomain>> GetAllPharmacy()
         {
             List<PharmacySPResult> listSPResult = await Repos.GetAllAsync();
