@@ -64,7 +64,6 @@
     <Build Include="Pharmacy\Tables\Patients.sql" />
     <Build Include="Pharmacy\Tables\Pharmacies.sql" />
     <Build Include="Pharmacy\Tables\PatientsPharmacies.sql" />
-    <Build Include="Pharmacy\Stored Procedures\SPGetAllPharmacies.sql" />
     <Build Include="Pharmacy\Stored Procedures\SPGetFilteredPharmacies.sql" />
     <Build Include="Pharmacy\Stored Procedures\SPCreatePharmacy.sql" />
     <Build Include="Pharmacy\Stored Procedures\SPUpdatePharmacy.sql" />

@@ -15,7 +15,7 @@ namespace BusinessLayer.Services
             Repos = new PharmacyRepository();
         }
         
-        public async Task<List<PharmacyDomain>> GetAllPharmacy()
+        public async Task<List<PharmacyDomain>> GetAllPharmacies()
         {
             List<PharmacySPResult> listSPResult = await Repos.GetAllAsync();
             List<PharmacyDomain> listDomain = listSPResult.Select(p => p.ToPharmacyDomain()).ToList();

@@ -14,7 +14,7 @@ namespace Pharm.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            //List<PharmacyDomain> listPharmDom = await PharmacyService.GetAllPharmacy();
+            //List<PharmacyDomain> listPharmDom = await PharmacyService.GetAllPharmacies();
 
             //PharmacyService.Create(new PharmacyViewModel
             //{
@@ -40,12 +40,13 @@ namespace Pharm.Controllers
             //.ToPharmacyDomain()
             //);
 
-            List<PharmacyDomain> listPharmDom = await PharmacyService.GetFiltered(new PharmacyViewModel
-            {               
-                PharmacyId = Guid.Parse("71136AD7-EF92-4019-8F1D-7EAD78C2E1C6"),                
-            }
-           .ToPharmacyDomain()
-           );
+           // List<PharmacyDomain> listPharmDom = await PharmacyService.GetFiltered(new PharmacyViewModel
+           // {               
+           //     PharmacyId = Guid.Parse("71136AD7-EF92-4019-8F1D-7EAD78C2E1C6"),                
+           // }
+           //.ToPharmacyDomain()
+           //);
+            List<PharmacyDomain> listPharmDom = await PharmacyService.GetAllPharmacies();
 
             return View(listPharmDom.Select(p=>p.ToPharmacyViewModel()).ToList());           
         }                 
