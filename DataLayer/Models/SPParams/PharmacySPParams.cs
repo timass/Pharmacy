@@ -4,7 +4,7 @@ namespace DataLayer
 {
     public class PharmacySPParams
     {
-        public Guid PharmacyId { get; set; }
+        public Guid? PharmacyId { get; set; }
 
         public string PhName { get; set; }
 

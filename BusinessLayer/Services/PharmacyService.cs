@@ -21,5 +21,21 @@ namespace BusinessLayer.Services
             List<PharmacyDomain> listDomain = listSPResult.Select(p => p.ToPharmacyDomain()).ToList();
             return listDomain;
         }
+        public async Task<List<PharmacyDomain>> GetFiltered(PharmacyDomain pharmacy)
+        {
+            List<PharmacySPResult> listSPResult = await Repos.GetFiltered(pharmacy.ToPharmacySPParams());
+            List<PharmacyDomain> listDomain = listSPResult.Select(p => p.ToPharmacyDomain()).ToList();
+            return listDomain;
+        }
+
+        public void Create(PharmacyDomain pharmacy)
+        {
+            Repos.Create(pharmacy.ToPharmacySPParams());                       
+        }
+
+        public void Update(PharmacyDomain pharmacy)
+        {
+            Repos.Update(pharmacy.ToPharmacySPParams());
+        }
     }   
 }
